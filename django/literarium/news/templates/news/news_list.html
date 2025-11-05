@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Новости — Literarium{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-center text-danger">Новости</h1>
+
+<div class="row">
+  {% for item in news %}
+    <div class="col-md-6 mb-4">
+      <div class="card border-danger shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">{{ item.content|truncatewords:35 }}</p>
+          {% if item.source %}
+            <p class="text-muted">Источник: 
+              <a href="{{ item.source.url }}" target="_blank">{{ item.source.name }}</a>
+            </p>
+          {% endif %}
+          <small class="text-secondary">{{ item.date|date:"d.m.Y H:i" }}</small>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>Пока нет новостей.</p>
+  {% endfor %}
+</div>
+{% endblock %}

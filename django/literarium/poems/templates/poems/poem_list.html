@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Стихи — Literarium{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-center text-primary">Стихи</h1>
+
+<div class="row">
+  {% for poem in poems %}
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ poem.title }}</h5>
+          <p class="card-text">{{ poem.text|truncatewords:40 }}</p>
+          <p class="text-muted mb-0">Автор: {{ poem.author.name }}</p>
+          <small class="text-secondary">{{ poem.created_at }}</small>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>Пока нет стихов.</p>
+  {% endfor %}
+</div>
+{% endblock %}

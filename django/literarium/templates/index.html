@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная — Literarium{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+  <h1 class="display-4">Добро пожаловать в Literarium</h1>
+  <p class="lead mt-3">Читайте вдохновляющие стихи, интересные статьи и свежие новости в одном месте!</p>
+
+  <div class="mt-4">
+    <a href="/poems/" class="btn btn-primary btn-lg mx-2">Стихи</a>
+    <a href="/articles/" class="btn btn-success btn-lg mx-2">Статьи</a>
+    <a href="/news/" class="btn btn-danger btn-lg mx-2">Новости</a>
+  </div>
+</div>
+{% endblock %}
